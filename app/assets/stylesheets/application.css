@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+a:visited {
+  color: #666;
+}
+a {
+  color: #000;
+}
+a:hover {
+  background-color: black;
+  color: white;
+}
