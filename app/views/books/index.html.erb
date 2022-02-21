@@ -1,2 +1,46 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<p id="notice"></p>
+
+<h1>Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>入門Git</td>
+      <td>gitについての基本操作から内部構造まで解説してくれます</td>
+      <td><a class="show_53857" href="/books/53857">Show</a></td>
+      <td><a class="edit_53857" href="/books/53857/edit">Edit</a></td>
+      <td><a data-confirm="Are you sure?" class="destroy_53857" rel="nofollow" data-method="delete" href="/books/53857">Destroy</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>New book</h2>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+<!-- form_with部分 -->
+<%= form_with model:@book, local:true do |f| %>
+<div class="field">
+  <!--<label for="book_title">Title</label>-->
+  <%= f.label :title, 'Title' %>
+  <%= f.text_field :title, class: 'book_title', id: 'book_title' %>
+</div>
+<div class="field">
+  <%= f.label :body, 'Body' %>
+  <%= f.text_area :body, class: 'book_body', id: 'book_body' %>
+</div>
+<div class="actions">
+  <%= f.submit 'Create Book' %>
+</div>
+<% end %>
